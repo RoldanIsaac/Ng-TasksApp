@@ -88,56 +88,23 @@
       </div>
     </div>
 
-    <!-- Hero right (card / resumen) -->
-    <div class="relative">
-      <div
-        class="rounded-2xl bg-white shadow-lg p-6 sm:p-8 border border-gray-100"
-      >
-        <div class="flex items-center justify-between">
-          <div>
-            <h3 class="text-lg font-semibold text-gray-900">
-              Resumen de la prueba
-            </h3>
-            <p class="text-sm text-gray-500 mt-1">
-              Tiempo en desarrollo: 21.5h. Entrega 9/28/2025.
-            </p>
-          </div>
-        </div>
-
-        <ul class="mt-6 space-y-3 text-sm text-gray-700">
-          <li *ngFor="let feature of features" class="flex items-start gap-3">
-            <svg
-              class="w-5 h-5 mt-1 text-teal-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            <span>{{ feature }}</span>
-          </li>
-        </ul>
-
-        <div class="mt-6">
-          <div class="text-xs text-gray-500">Estado</div>
-          <div class="mt-2 inline-flex items-center gap-3">
-            <span
-              class="px-3 py-1 rounded-full bg-green-100 text-green-800 text-xs font-semibold"
-              >Listo</span
-            >
-            <span class="text-sm text-gray-600">Revisión pendiente</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mt-12 text-center text-gray-500 text-sm">
-    <span>Hecho por Orlando Llamos — Prueba técnica</span>
+    <ul class="mt-6 space-y-3 text-sm text-gray-700">
+      <li *ngFor="let feature of features" class="flex items-start gap-3">
+        <svg
+          class="w-5 h-5 mt-1 text-teal-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+        <span>{{ feature }}</span>
+      </li>
+    </ul>
   </div>
 </section>

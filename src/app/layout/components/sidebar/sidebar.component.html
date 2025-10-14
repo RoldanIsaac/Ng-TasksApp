@@ -1,11 +1,11 @@
 <div
-  class="shadow-md h-full flex flex-col gap-1 p-2 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+  class="shadow-md h-full flex flex-col gap-1 p-2 border-r border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-700"
 >
   <!-- Navigation items -->
   <ng-container *ngFor="let item of sideNavItems">
     <a
       routerLink="{{ item.url }}"
-      class="flex flex-row items-center text-gray-700 dark:text-gray-300 rounded-md h-10 text-sm hover:bg-teal-100 hover:text-teal-800 dark:hover:bg-gray-800 dark:hover:text-teal-400 px-3"
+      class="flex flex-row items-center text-gray-700 dark:text-gray-300 h-10 text-sm hover:bg-teal-100 hover:text-teal-800 dark:hover:bg-gray-800 dark:hover:text-teal-400 px-3"
     >
       <mat-icon class="!w-7 !h-7 mr-2 !text-gray-600 dark:!text-gray-400">
         {{ item.icon }}
