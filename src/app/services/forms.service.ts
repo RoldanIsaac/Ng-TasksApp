@@ -19,11 +19,9 @@ export class FormsService {
 
   getFormDataAsJson(formData: FormData): string {
     const formDataObj: { [key: string]: any } = {};
-
     formData.forEach((value, key) => {
       formDataObj[key] = value;
     });
-
     return JSON.stringify(formDataObj);
   }
 

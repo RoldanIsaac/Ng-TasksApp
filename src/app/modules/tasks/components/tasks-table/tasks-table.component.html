@@ -1,7 +1,13 @@
-<div class="flex flex-row justify-between px-3 py-1 mb-3">
+<div class="flex flex-row justify-between px-3 py-1 mb-3 items-center">
   <app-filters></app-filters>
 
-  <button (click)="onAdd()">Add</button>
+  <button
+    (click)="onAdd()"
+    class="bg-blue-500 hover:bg-blue-700 py-0.5 px-8 rounded-md text-white flex items-center gap-1.5"
+  >
+    <mat-icon class="scale-95"> add </mat-icon>
+    Add
+  </button>
 </div>
 
 <table mat-table [dataSource]="dataSource">

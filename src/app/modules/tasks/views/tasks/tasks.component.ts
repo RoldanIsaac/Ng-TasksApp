@@ -4,7 +4,6 @@ import { TasksTableComponent } from '../../components/tasks-table/tasks-table.co
 import { EntityUI } from '../../../../core/interfaces/ui';
 import { Task } from '../../store/tasks.models';
 import { TasksAddEditComponent } from '../../components/tasks-add-edit/tasks-add-edit.component';
-import { TasksDetailsComponent } from '../tasks-details/tasks-details.component';
 import { Subject, take, takeUntil } from 'rxjs';
 import { TasksState } from '../../store/tasks.reducer';
 import { DialogService } from '../../../../services/dialog.service';
@@ -31,7 +30,7 @@ export class TasksComponent implements OnInit, OnDestroy {
     data: signal<Task[]>([]),
     dialogs: {
       addEdit: TasksAddEditComponent,
-      details: TasksDetailsComponent,
+      details: null,
     },
   };
 

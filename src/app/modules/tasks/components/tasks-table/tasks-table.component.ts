@@ -15,6 +15,7 @@ import { tasksCols } from './tasks-table.config';
 import { TableActionsComponent } from '../../../../components/table-actions/table-actions.component';
 import { FiltersComponent } from '../../../../components/filters/filters.component';
 import { StatusStylePipe } from '../../../../core/pipes/status-style.pipe';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-tasks-table',
@@ -24,6 +25,7 @@ import { StatusStylePipe } from '../../../../core/pipes/status-style.pipe';
     TableActionsComponent,
     FiltersComponent,
     StatusStylePipe,
+    MatIconModule,
   ],
   templateUrl: './tasks-table.component.html',
   styleUrl: './tasks-table.component.css',

@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Task } from '../store/tasks.models';
 import { TaskEndpoints } from '../../../core/enums/tasks';
 import { ApiService } from '../../../api/service/api.service';
@@ -9,27 +9,9 @@ import { FormsService } from '../../../services/forms.service';
   providedIn: 'root',
 })
 export class TasksService {
-  private _task: ReplaySubject<Task> = new ReplaySubject<Task>(1);
   private _endpoint = TaskEndpoints;
   private _apiService = inject(ApiService);
   private _formsService = inject(FormsService);
-
-  // --------------------------------------------------------------------------------
-  // @ Accessors
-  // --------------------------------------------------------------------------------
-
-  /**
-   * Setter & getter for task
-   *
-   * @param value
-   */
-  set task(value: Task) {
-    this._task.next(value);
-  }
-
-  get task$(): Observable<Task> {
-    return this._task.asObservable();
-  }
 
   // --------------------------------------------------------------------------------
   // @ Public methods

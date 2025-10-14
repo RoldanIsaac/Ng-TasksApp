@@ -1,1 +1,13 @@
-<p>filters works!</p>
+<form [formGroup]="formGroup" class="flex flex-row">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Status</mat-label>
+    <mat-select
+      formControlName="status"
+      (selectionChange)="onSelectStatus($event)"
+    >
+      <mat-option *ngFor="let status of statuses" [value]="status.value">
+        {{ status.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
