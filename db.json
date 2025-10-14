@@ -1,0 +1,64 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Aprender acordes básicos",
+      "description": "Practicar acordes mayores y menores en la guitarra (C, G, D, A, E, Am, Em, Dm)",
+      "status": "PENDING"
+    },
+    {
+      "id": 2,
+      "title": "Tocar una progresión simple",
+      "description": "Combinar acordes C - G - Am - F para formar una progresión fluida",
+      "status": "PENDING"
+    },
+    {
+      "id": 3,
+      "title": "Practicar cambios de acordes",
+      "description": "Mejorar la transición entre acordes sin detener el ritmo",
+      "status": "COMPLETED"
+    },
+    {
+      "id": 4,
+      "title": "Aprender una canción completa",
+      "description": "Tocar una canción sencilla como 'Knockin' on Heaven’s Door' o 'Wonderwall'",
+      "status": "PENDING"
+    },
+    {
+      "id": 5,
+      "title": "Ejercicios de digitación",
+      "description": "Hacer ejercicios cromáticos para mejorar coordinación y velocidad",
+      "status": "COMPLETED"
+    },
+    {
+      "id": 6,
+      "title": "Estudiar teoría musical básica",
+      "description": "Comprender notas, intervalos, escalas mayores y menores",
+      "status": "PENDING"
+    },
+    {
+      "id": 7,
+      "title": "Aprender ritmo y compás",
+      "description": "Practicar con metrónomo diferentes compases: 4/4, 3/4 y 6/8",
+      "status": "PENDING"
+    },
+    {
+      "id": 8,
+      "title": "Grabar una sesión de práctica",
+      "description": "Usar el celular o una app para grabar y escuchar avances",
+      "status": "COMPLETED"
+    },
+    {
+      "id": 9,
+      "title": "Improvisar sobre una base",
+      "description": "Usar la escala pentatónica para improvisar sobre una backing track en Am",
+      "status": "PENDING"
+    },
+    {
+      "id": 10,
+      "title": "Aprender a leer tablaturas",
+      "description": "Interpretar correctamente las posiciones de cuerdas y trastes",
+      "status": "COMPLETED"
+    }
+  ]
+}

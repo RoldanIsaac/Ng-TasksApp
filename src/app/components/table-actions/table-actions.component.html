@@ -1,0 +1,30 @@
+<div class="min-w-25 space-x-1" #actionContainer>
+  <!-- Common -->
+  <!-- Edit -->
+  <button
+    *ngIf="isEdit()"
+    mat-icon-button
+    type="button"
+    (click)="onEdit()"
+    matTooltip="Edit this element"
+    [matTooltipPosition]="positionOptions[2]"
+    [disabled]="disableActions()"
+    class="cursor-pointer"
+  >
+    <mat-icon *ngIf="isIcon" svgIcon="edit"></mat-icon>
+  </button>
+
+  <!-- Delete -->
+  <button
+    *ngIf="isDelete()"
+    mat-icon-button
+    type="button"
+    (click)="onDelete()"
+    matTooltip="Delete this element"
+    [matTooltipPosition]="positionOptions[2]"
+    [disabled]="disableActions()"
+    class="cursor-pointer"
+  >
+    <mat-icon *ngIf="isIcon" svgIcon="delete"></mat-icon>
+  </button>
+</div>

@@ -1,0 +1,10 @@
+<div class="flex w-full flex-col">
+  <app-tasks-table
+    [entity]="tasksUI.name"
+    [data]="tasksUI.data()"
+    (viewEmit)="onDetails($event)"
+    (addEmit)="onCreate()"
+    (updateEmit)="onUpdate($event)"
+    (deleteEmit)="onDelete($event)"
+  ></app-tasks-table>
+</div>
