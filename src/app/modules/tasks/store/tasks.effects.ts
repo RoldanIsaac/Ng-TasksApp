@@ -4,12 +4,14 @@ import { Store } from '@ngrx/store';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { TasksService } from '../services/tasks.service';
 import * as TaskActions from './tasks.actions';
+import { AlertService } from '../../../services/alert.service';
 
 @Injectable()
 export class TasksEffects {
   private _actions$ = inject(Actions);
   private _store = inject(Store);
   private _taskService = inject(TasksService);
+  private _alertService = inject(AlertService);
 
   messages = {
     getAllError: 'Error getting all tasks',
@@ -143,35 +145,35 @@ export class TasksEffects {
   // @ Alerts
   // ------------------------------------------------------------------------------------------
 
-  //   onTaskActionSuccess$ = createEffect(
-  //     () =>
-  //       this._actions$.pipe(
-  //         ofType(
-  //           TaskActions.createTaskSuccess,
-  //           TaskActions.updateTaskSuccess,
-  //           TaskActions.deleteTaskSuccess
-  //         ),
-  //         tap((action) => {
-  //           this._alertService.showAlert(action.success, 'success');
-  //         })
-  //       ),
-  //     { dispatch: false }
-  //   );
+  onTaskActionSuccess$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(
+          TaskActions.createTaskSuccess,
+          TaskActions.updateTaskSuccess,
+          TaskActions.deleteTaskSuccess
+        ),
+        tap((action) => {
+          this._alertService.info(action.success);
+        })
+      ),
+    { dispatch: false }
+  );
 
-  //   onTaskActionFailure$ = createEffect(
-  //     () =>
-  //       this._actions$.pipe(
-  //         ofType(
-  //           TaskActions.loadTasksFailure,
-  //           TaskActions.loadTaskFailure,
-  //           TaskActions.createTaskFailure,
-  //           TaskActions.updateTaskFailure,
-  //           TaskActions.deleteTaskFailure
-  //         ),
-  //         tap((action) => {
-  //           this._alertService.showAlert(action.error, 'error');
-  //         })
-  //       ),
-  //     { dispatch: false }
-  //   );
+  onTaskActionFailure$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(
+          TaskActions.loadTasksFailure,
+          TaskActions.loadTaskFailure,
+          TaskActions.createTaskFailure,
+          TaskActions.updateTaskFailure,
+          TaskActions.deleteTaskFailure
+        ),
+        tap((action) => {
+          this._alertService.error(action.error);
+        })
+      ),
+    { dispatch: false }
+  );
 }

@@ -59,7 +59,7 @@ export class TasksService {
    * Create a new task
    * @returns
    */
-  create(taskData: Partial<Task>): Observable<any> {
+  create(taskData: FormData): Observable<any> {
     return this._apiService.post(this._endpoint.create, taskData);
   }
 
@@ -68,7 +68,7 @@ export class TasksService {
    * Update a task
    * @returns
    */
-  update(taskData: Partial<Task>, id: number): Observable<any> {
+  update(taskData: FormData, id: number): Observable<any> {
     return this._apiService.update(this._endpoint.update, taskData, id);
   }
 

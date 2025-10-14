@@ -33,7 +33,7 @@ export const loadTaskFailure = createAction(
 // Create
 export const createTask = createAction(
   '[Task] Create Task',
-  props<{ taskData: any }>()
+  props<{ taskData: FormData }>()
 );
 export const createTaskSuccess = createAction(
   '[Task] Create Task Success',
@@ -47,7 +47,7 @@ export const createTaskFailure = createAction(
 // Update
 export const updateTask = createAction(
   '[Task] Update Task',
-  props<{ taskData: Partial<Task>; id: number }>()
+  props<{ taskData: FormData; id: number }>()
 );
 export const updateTaskSuccess = createAction(
   '[Task] Update Task Success',

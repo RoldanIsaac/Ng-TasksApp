@@ -9,7 +9,12 @@ import { Subject, take, takeUntil } from 'rxjs';
 import { TasksState } from '../../store/tasks.reducer';
 import { DialogService } from '../../../../services/dialog.service';
 import { select, Store } from '@ngrx/store';
-import { createTask, deleteTask, loadTasks } from '../../store/tasks.actions';
+import {
+  createTask,
+  deleteTask,
+  loadTasks,
+  updateTask,
+} from '../../store/tasks.actions';
 import { selectAllTasks } from '../../store/tasks.selectors';
 import { tasksCols } from '../../components/tasks-table/tasks-table.config';
 
@@ -62,21 +67,21 @@ export class TasksComponent implements OnInit, OnDestroy {
    *
    */
   getAllFromStore(): void {
-    // Get All Users | Action & Selector
+    // Get All Tasks | Action & Selector
     this.store.dispatch(loadTasks());
     this.store
       .pipe(takeUntil(this._unsubscribeAll), select(selectAllTasks))
-      .subscribe((users) => {
-        if (!users) {
+      .subscribe((tasks) => {
+        if (!tasks) {
           return;
         }
-        this.tasksUI.data.set([...users]);
+        this.tasksUI.data.set([...tasks]);
       });
   }
 
-  // -----------------------------------------------------------------------------------------------------
-  // @ DialogService Methods
-  // -----------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------
+  // @ CRUD Methods
+  // --------------------------------------------------------------------------------------
 
   /**
    *
@@ -94,29 +99,31 @@ export class TasksComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((formData: FormData) => {
         if (formData) {
-          // console.log(formData);
+          // console.log(formData); // debug
           this.store.dispatch(createTask({ taskData: formData }));
         }
       });
   }
 
-  onUpdate(data: any): void {}
+  /**
+   *
+   */
+  onUpdate(data: any): void {
+    this._dialogService
+      .openModal(this.tasksUI.dialogs.addEdit, data, true)
+      .pipe(take(1))
+      .subscribe((formData: FormData) => {
+        if (formData) {
+          // console.log(formData); // debug
+          this.store.dispatch(updateTask({ taskData: formData, id: data.id }));
+        }
+      });
+  }
 
   /**
    *
    */
-  onDelete(data: any): void {
-    // const dialogData: FuseConfirmationConfig = {
-    //   title: 'Confirm delete user',
-    //   message: `Are you sure to delete this user permanently: ${task.title}?`,
-    //   dismissible: true,
-    // };
-    // this._confirmationService
-    //   .open(dialogData)
-    //   .afterClosed()
-    //   .subscribe((res) => {
-    //     if (res !== 'confirmed') return;
-    //     this.store.dispatch(deleteTask({ id: task.id }));
-    //   });
+  onDelete(task: any): void {
+    this.store.dispatch(deleteTask({ id: task.id }));
   }
 }
