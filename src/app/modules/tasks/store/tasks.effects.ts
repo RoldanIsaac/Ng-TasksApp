@@ -9,7 +9,6 @@ import { AlertService } from '../../../services/alert.service';
 @Injectable()
 export class TasksEffects {
   private _actions$ = inject(Actions);
-  private _store = inject(Store);
   private _taskService = inject(TasksService);
   private _alertService = inject(AlertService);
 
@@ -77,7 +76,7 @@ export class TasksEffects {
         return this._taskService.create(action.taskData).pipe(
           map((res) => {
             return TaskActions.createTaskSuccess({
-              task: res.data,
+              task: res,
               success: 'Task created successfully',
             });
           }),

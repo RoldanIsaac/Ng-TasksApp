@@ -3,6 +3,7 @@ import { Observable, ReplaySubject } from 'rxjs';
 import { Task } from '../store/tasks.models';
 import { TaskEndpoints } from '../../../core/enums/tasks';
 import { ApiService } from '../../../api/service/api.service';
+import { FormsService } from '../../../services/forms.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ export class TasksService {
   private _task: ReplaySubject<Task> = new ReplaySubject<Task>(1);
   private _endpoint = TaskEndpoints;
   private _apiService = inject(ApiService);
+  private _formsService = inject(FormsService);
 
   // --------------------------------------------------------------------------------
   // @ Accessors
@@ -60,7 +62,8 @@ export class TasksService {
    * @returns
    */
   create(taskData: FormData): Observable<any> {
-    return this._apiService.post(this._endpoint.create, taskData);
+    const json = this._formsService.getFormDataAsJson(taskData);
+    return this._apiService.post(this._endpoint.create, json);
   }
 
   /**
@@ -69,7 +72,8 @@ export class TasksService {
    * @returns
    */
   update(taskData: FormData, id: number): Observable<any> {
-    return this._apiService.update(this._endpoint.update, taskData, id);
+    const json = this._formsService.getFormDataAsJson(taskData);
+    return this._apiService.update(this._endpoint.update, json, id);
   }
 
   /**
