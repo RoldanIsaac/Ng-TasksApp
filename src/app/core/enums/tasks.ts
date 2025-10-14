@@ -10,3 +10,8 @@ export enum TaskEndpoints {
   update = 'tasks',
   delete = 'tasks',
 }
+
+export const statuses = [
+  { value: TaskStatus.PENDING, viewValue: 'Pending' },
+  { value: TaskStatus.COMPLETED, viewValue: 'Completed' },
+];
