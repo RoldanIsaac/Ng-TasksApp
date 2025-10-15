@@ -8,7 +8,7 @@ import {
   Output,
 } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { Task } from '../../store/tasks.models';
 import { CommonModule } from '@angular/common';
 import { tasksCols } from './tasks-table.config';
@@ -16,6 +16,8 @@ import { TableActionsComponent } from '../../../../components/table-actions/tabl
 import { FiltersComponent } from '../../../../components/filters/filters.component';
 import { StatusStylePipe } from '../../../../core/pipes/status-style.pipe';
 import { MatIconModule } from '@angular/material/icon';
+import { FilterService } from '../../../../services/filter.service';
+import { TaskStatus } from '../../../../core/enums/tasks';
 
 @Component({
   selector: 'app-tasks-table',
@@ -42,7 +44,7 @@ export class TasksTableComponent implements OnInit, OnDestroy {
   @Output() updateEmit = new EventEmitter();
   @Output() deleteEmit = new EventEmitter();
 
-  constructor() {
+  constructor(private filterService: FilterService) {
     effect(() => {
       if (this.data()) {
         this.dataSource.data = this.data();
@@ -57,7 +59,21 @@ export class TasksTableComponent implements OnInit, OnDestroy {
   /**
    * On Init
    */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.filterService.status$
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((status: TaskStatus) => {
+        if (!status) {
+          return;
+        }
+
+        this.dataSource.data = this.data();
+
+        this.dataSource.data = this.dataSource.data.filter((row) => {
+          return row.status === status;
+        });
+      });
+  }
 
   /**
    * On Destroy

@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule, MatLabel } from '@angular/material/input';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
+import { FilterService } from '../../services/filter.service';
 
 const MatModules = [
   MatInputModule,
@@ -44,7 +45,10 @@ export class FiltersComponent implements OnInit, OnDestroy {
   isIcon: boolean = false;
   actionIconNames = ['plus'];
 
-  constructor(private _uiService: UiService) {}
+  constructor(
+    private _uiService: UiService,
+    private _filterService: FilterService
+  ) {}
 
   // --------------------------------------------------------------
   //  @ Lifecycle Hooks
@@ -67,5 +71,6 @@ export class FiltersComponent implements OnInit, OnDestroy {
 
   onSelectStatus($event: MatSelectChange): void {
     const filterValue = $event.value;
+    this._filterService.status = filterValue;
   }
 }
