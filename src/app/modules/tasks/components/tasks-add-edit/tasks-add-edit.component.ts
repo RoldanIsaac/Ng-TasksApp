@@ -14,6 +14,8 @@ import { Subject } from 'rxjs';
 import { UiService } from '../../../../services/ui.service';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
+import { DialogDismissComponent } from '../../../../components/dialog-dismiss/dialog-dismiss.component';
+import { MaxLengthDirective } from '../../../../core/directives/input-max-length.directive';
 
 const MatModules = [
   MatInputModule,
@@ -31,8 +33,8 @@ const MatModules = [
     MatModules,
     ReactiveFormsModule,
     CommonModule,
-    // DialogDismissComponent,
-    // MaxLengthDirective,
+    DialogDismissComponent,
+    MaxLengthDirective,
   ],
   templateUrl: './tasks-add-edit.component.html',
   styleUrl: './tasks-add-edit.component.css',

@@ -12,6 +12,7 @@ export class DashboardComponent {
     'Componentes reutilizables.',
     'Navbar responsive con toggle integrado.',
     'Packages: Angular Material, NgRx',
+    'Responsive',
   ];
 
   url = 'https://github.com/RoldanIsaac/Ng-TasksApp';

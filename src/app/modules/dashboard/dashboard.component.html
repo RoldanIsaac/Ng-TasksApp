@@ -1,26 +1,26 @@
 <section
-  class="h-full flex flex-col mx-auto max-w-[70%] items-center dark:bg-gray-900"
+  class="h-full flex flex-col mx-auto max-w-[70%] items-center transition-colors duration-300"
 >
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-10">
     <!-- Hero left -->
     <div class="space-y-6">
       <!-- Badge + tech stack -->
       <div class="inline-flex items-center gap-3">
         <span
-          class="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-semibold dark:bg-orange-900 dark:text-orange-200"
+          class="px-3 py-1 rounded-full bg-gray-200 text-gray-800 text-xs font-semibold dark:bg-gray-800 dark:text-gray-200"
         >
-          Interfaz
+          Tasks Module
         </span>
-        <span class="text-sm text-gray-500 dark:text-gray-400"
-          >Tailwind • Angular</span
-        >
+        <span class="text-sm text-gray-500 dark:text-gray-400">
+          Tailwind • Angular
+        </span>
       </div>
 
       <!-- Title -->
       <h1
         class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white"
       >
-        <span class="text-orange-600 dark:text-orange-400">Prueba Técnica</span>
+        <span class="text-gray-700 dark:text-gray-200">Prueba Técnica</span>
       </h1>
 
       <!-- Description -->
@@ -33,7 +33,7 @@
       <!-- Action buttons -->
       <div class="flex flex-wrap gap-3">
         <a
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-orange-600 text-white text-sm font-medium shadow hover:bg-orange-700 transition"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 transition dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
           href="https://github.com/RoldanIsaac/Ng-TasksApp"
           role="button"
         >
@@ -52,51 +52,6 @@
             />
           </svg>
         </a>
-
-        <a
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-gray-200 text-sm text-gray-700 hover:bg-gray-50 transition dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
-          href="#"
-        >
-          Requisitos &amp; notas
-        </a>
-      </div>
-
-      <!-- Feature highlights -->
-      <div
-        class="mt-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400"
-      >
-        <div class="flex items-center gap-2">
-          <svg
-            class="w-5 h-5 text-orange-600 dark:text-orange-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <span>Responsive (mobile-first)</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg
-            class="w-5 h-5 text-orange-600 dark:text-orange-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <span>Accesibilidad y semántica</span>
-        </div>
       </div>
     </div>
 
@@ -104,7 +59,7 @@
     <ul class="mt-6 space-y-3 text-sm text-gray-700 dark:text-gray-300">
       <li *ngFor="let feature of features" class="flex items-start gap-3">
         <svg
-          class="w-5 h-5 mt-1 text-orange-500 dark:text-orange-400"
+          class="w-5 h-5 mt-1 text-gray-700 dark:text-gray-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
