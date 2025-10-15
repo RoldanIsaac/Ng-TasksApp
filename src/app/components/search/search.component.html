@@ -1,0 +1,23 @@
+<div class="min-w-lg max-w-lg mx-auto flex flex-col gap-2">
+  <input
+    type="text"
+    [formControl]="searchControl"
+    placeholder="Buscar..."
+    class="w-full px-4 py-2 border border-gray-300 rounded-md"
+  />
+
+  <div *ngIf="loading" class="text-gray-500 italic text-sm">Searching...</div>
+  <div *ngIf="error" class="text-red-500 text-sm">{{ error }}</div>
+
+  <ul
+    *ngIf="results.length > 0"
+    class="mt-2 border border-gray-200 rounded-md divide-y divide-gray-200 shadow-sm"
+  >
+    <li
+      *ngFor="let item of results"
+      class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+    >
+      {{ item.name || item.title || item }}
+    </li>
+  </ul>
+</div>

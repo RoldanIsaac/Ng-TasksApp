@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return isAuthenticated ? of(true) : of(router.parseUrl('/sign-in'));
 };

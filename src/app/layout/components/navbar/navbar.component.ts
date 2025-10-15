@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ThemeService } from '../../../services/theme.service';
+import { SearchComponent } from '../../../components/search/search.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, SearchComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })

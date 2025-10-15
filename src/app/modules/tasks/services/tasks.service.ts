@@ -16,6 +16,20 @@ export class TasksService {
   // --------------------------------------------------------------------------------
   // @ Public methods
   // --------------------------------------------------------------------------------
+
+  /**
+   * @description
+   * Search tasks by a term
+   * @param query The search keyword
+   * @returns Observable<Task[]>
+   */
+  search(query: string): Observable<Task[]> {
+    // Si tu API usa query params
+    return this._apiService.get(
+      `${this._endpoint.getAll}?term=${encodeURIComponent(query)}`
+    );
+  }
+
   // --------------------------------------------------------------------------------
   // @ CRUD methods
   // --------------------------------------------------------------------------------
