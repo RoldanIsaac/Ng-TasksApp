@@ -49,3 +49,12 @@ h6 {
 * {
   @apply transition-colors duration-200 ease-in-out;
 }
+
+mat-drawer,
+mat-drawer-container {
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+mat-drawer-content {
+  @apply bg-white text-gray-800 dark:bg-gray-900;
+}

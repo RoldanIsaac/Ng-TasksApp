@@ -9,16 +9,21 @@
 
   <mat-drawer-container class="flex-auto" autosize>
     <!-- Sidebar -->
-    <mat-drawer #drawer mode="side" [opened]="true" class="max-w-60">
+    <mat-drawer
+      #drawer
+      mode="side"
+      [opened]="true"
+      class="max-w-60 rounded-none overflow-visible"
+    >
       <app-sidebar></app-sidebar>
     </mat-drawer>
 
     <!-- Drawer content -->
     <mat-drawer-content class="flex flex-col">
       <!-- Render views -->
-      <div class="flex-auto p-2 sm:p-4">
-        <!-- CONTENT GOES HERE -->
+      <div class="flex-auto p-2 sm:p-4 text-gray-900 dark:text-gray-100">
         <router-outlet></router-outlet>
+        <div></div>
       </div>
     </mat-drawer-content>
   </mat-drawer-container>

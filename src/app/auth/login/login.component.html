@@ -1,0 +1,82 @@
+<div
+  class="flex flex-auto flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
+>
+  <div
+    class="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8"
+  >
+    <!-- Title -->
+    <h1
+      class="text-3xl font-bold text-center text-gray-800 dark:text-gray-100 mb-6"
+    >
+      Welcome back
+    </h1>
+
+    <!-- Sign in form -->
+    <form class="space-y-5" [formGroup]="signInForm">
+      <!-- Email field -->
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Email</mat-label>
+        <input
+          id="email"
+          matInput
+          [formControlName]="'email'"
+          class="text-gray-800 dark:text-gray-100"
+        />
+        @if (signInForm.get('email').hasError('required')) {
+        <mat-error>Email address is required</mat-error>
+        } @if (signInForm.get('email').hasError('email')) {
+        <mat-error>Please enter a valid email address</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Password field -->
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Password</mat-label>
+        <input
+          id="password"
+          matInput
+          type="password"
+          [formControlName]="'password'"
+          class="text-gray-800 dark:text-gray-100"
+        />
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
+
+      <!-- Actions -->
+      <div class="flex items-center justify-between text-sm">
+        <mat-checkbox
+          [color]="'primary'"
+          [formControlName]="'rememberMe'"
+          class="text-gray-700 dark:text-gray-300"
+        >
+          Remember me
+        </mat-checkbox>
+
+        <a
+          [routerLink]="['/forgot-password']"
+          class="text-blue-600 hover:underline dark:text-blue-400"
+        >
+          Forgot password?
+        </a>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        type="button"
+        class="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 disabled:opacity-70 transition-colors"
+        [disabled]="signInForm.disabled"
+        (click)="signIn()"
+      >
+        @if (!signInForm.disabled) {
+        <span class="text-lg">Login</span>
+        } @if (signInForm.disabled) {
+        <mat-progress-spinner
+          class="mx-auto"
+          [diameter]="24"
+          [mode]="'indeterminate'"
+        ></mat-progress-spinner>
+        }
+      </button>
+    </form>
+  </div>
+</div>
