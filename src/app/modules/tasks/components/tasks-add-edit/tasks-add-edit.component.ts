@@ -12,6 +12,7 @@ import {
 } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { UiService } from '../../../../services/ui.service';
+import { FormsService } from '../../../../services/forms.service';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { DialogDismissComponent } from '../../../../components/dialog-dismiss/dialog-dismiss.component';
@@ -60,7 +61,8 @@ export class TasksAddEditComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialogRef: MatDialogRef<TasksAddEditComponent>,
-    private _uiService: UiService
+    private _uiService: UiService,
+    private _formsService: FormsService
   ) {}
 
   // --------------------------------------------------------------
@@ -90,8 +92,6 @@ export class TasksAddEditComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Debug
-    // console.log(this._matDialog.data);
     const data = this._matDialog.data;
 
     this.formGroup.patchValue(
@@ -139,8 +139,8 @@ export class TasksAddEditComponent implements OnInit, OnDestroy {
    * @description
    */
   onSubmit() {
-    // this._formsService.markFormGroupTouched(this.formGroup);
-    // this._formsService.logInvalidFormValues(this.formGroup);
+    // Mark all fields as touched to show validation errors
+    this._formsService.markFormGroupTouched(this.formGroup);
 
     // If the form is invalid do nothing
     if (this.formGroup.invalid) {

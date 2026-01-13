@@ -14,4 +14,5 @@ To start a local api json server, run:
 
 ```bash
 json-server --watch db.json
+npx json-server db.json
 ```

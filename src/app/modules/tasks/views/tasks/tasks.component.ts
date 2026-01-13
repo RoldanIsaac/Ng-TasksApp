@@ -98,7 +98,6 @@ export class TasksComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((formData: FormData) => {
         if (formData) {
-          // console.log(formData); // debug
           this.store.dispatch(createTask({ taskData: formData }));
         }
       });
@@ -113,7 +112,6 @@ export class TasksComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((formData: FormData) => {
         if (formData) {
-          // console.log(formData); // debug
           this.store.dispatch(updateTask({ taskData: formData, id: data.id }));
         }
       });

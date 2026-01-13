@@ -23,7 +23,7 @@ export class DialogService {
 
     // Set dialog configuration
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true; // Prevent closing on outside
+    dialogConfig.disableClose = false; // Allow closing on outside click
     dialogConfig.data = dialogFeatures;
     dialogConfig.maxHeight = '650px';
     dialogConfig.minWidth = minWidth;

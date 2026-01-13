@@ -66,7 +66,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
   }
 
   // --------------------------------------------------------------
-  //  @ Lifecycle Hooks
+  // @ Public Methods
   // --------------------------------------------------------------
 
   onSelectStatus($event: MatSelectChange): void {

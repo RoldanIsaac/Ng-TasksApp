@@ -153,7 +153,7 @@ export class TasksEffects {
           TaskActions.deleteTaskSuccess
         ),
         tap((action) => {
-          this._alertService.info(action.success);
+          this._alertService.success(action.success);
         })
       ),
     { dispatch: false }

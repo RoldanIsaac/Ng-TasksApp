@@ -45,8 +45,7 @@ export class SearchComponent {
         },
         error: (err) => {
           this.loading = false;
-          this.error = 'Error al buscar datos.';
-          console.error(err);
+          this.error = 'Error searching data. Please try again.';
         },
       });
   }
